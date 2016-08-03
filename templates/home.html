@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        body {
+            padding-top: 30px;
+        }
+        @media (min-width: 768px) {
+            .container {
+                width: 555px;
+            }
+        }
+        @media (min-width: 992px) {
+            .container {
+                width: 715px;
+            }
+        }
+        @media (min-width: 1200px) {
+            .container {
+                width: 866px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header clearfix">
+            <h3 class="text-muted">URL Shortener</h3>
+        </div>
+
+        <div class="jumbotron">
+        {% if not short_url %}
+            <form class="input-group" action="" method="post">
+                <input type="text" name="url" class="form-control" placeholder="Enter your url here">
+                <span class="input-group-btn">
+                    <button class="btn btn-info" type="submit">Shorten</button>
+                </span>
+            </form>
+        {% else %}
+            Your shortened URL is: <a href="{{ short_url }}">{{ short_url }}</a>
+        {% endif %}
+        </div>
+    </div>
+</body>
+</html>
